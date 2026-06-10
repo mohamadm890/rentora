@@ -3,7 +3,7 @@ import { getListings } from "@/services/clients/property.client";
 import { normalizeListing } from "./lib/normalizeListing";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://rentora.ma";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
   let listings: any[] = [];
 
