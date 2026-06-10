@@ -1,0 +1,77 @@
+{
+
+
+ "feed": {
+  "header": "Browse properties",
+
+    "noResults": "No results",
+    "noResultsHint": "Try to adjust your filters.",
+    "available": "{{count}} rentals available."
+  },
+
+  "filters": {
+    "all": "All",
+    "city": {
+      "title": "Select City",
+      "description": "Choose where you want to rent"
+    },
+    "type": {
+      "title": "Property Type",
+      "description": "Select type of rental"
+    },
+    "types": {
+      "apartment": "Apartment",
+      "studio": "Studio",
+      "house": "House",
+      "room": "Room",
+      "villa": "Villa"
+    },
+    "cities": {
+      "agadir": "Agadir",
+      "marrakech": "Marrakech"
+    }
+  }
+  
+  
+  
+  
+  
+  
+  
+  ,
+  "listing": {
+    "header": {
+      "title": "Add your property",
+      "subTitle": "Fill in your property details and start receiving bookings"
+    },
+
+    "basicInfo": "Basic information",
+    "title": "Property title",
+    "location": "Location",
+    "whatsapp": "WhatsApp number",
+
+    
+    "photos": {
+      "title": "Add photos of your property",
+      "subTitle": "Good photos help you get rented faster",
+      "add": "Add photos"
+    },
+    "photosHint": "High-quality photos help you get booked faster",
+
+
+    "pricing": {
+  "title": "Set monthly rent",
+  "subTitle": "You can change the price anytime",
+  "priceLabel": "Monthly rent price",
+  "summaryTitle": "Rent price",
+  "perMonth": "per month"
+},
+    "priceHint": "You can update it anytime",
+
+    "review": "Review your listing",
+
+    "next": "Next",
+    "back": "Back",
+    "publish": "Publish"
+  }
+}

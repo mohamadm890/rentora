@@ -1,0 +1,98 @@
+{
+
+  "header": {
+    "listProperty": "Ajouter votre bien"
+  },
+    "feed": {
+      "header": "Parcourir les logements",
+      "noResults": "Aucun résultat",
+      "noResultsHint": "Essayez d'ajuster vos filtres.",
+      "available": "{{count}} logements disponibles."
+    },
+
+    
+      "filters": {
+        "all": "Tous",
+    
+        "city": {
+          "title": "Choisir la ville",
+          "description": "Sélectionnez où vous souhaitez louer"
+        },
+    
+        "type": {
+          "title": "Type de bien",
+          "description": "Sélectionnez le type de location"
+        },
+    
+        "types": {
+          "apartment": "Appartement",
+          "studio": "Studio",
+          "house": "Maison",
+          "room": "Chambre",
+          "villa": "Villa"
+        },
+    
+        "cities": {
+          "agadir": "Agadir",
+          "marrakech": "Marrakech"
+        }
+      }
+    
+  ,
+  "listing": {
+    "header": {
+      "title": "Ajouter un logement",
+      "subTitle": "Remplissez les détails de votre bien et commencez à recevoir des réservations"
+    },
+    "uploading": "Chargement...",
+    "uploadCoverImage": "Télécharger l'image de couverture",
+    "multiplePhotosHint": "Vous pouvez ajouter plusieurs photos",
+    "type": "Type de bien",
+    "typePlaceholder": "Sélectionnez un type",
+    "types": {
+      "apartment": "Appartement",
+      "villa": "Villa",
+      "studio": "Studio",
+      "room": "Chambre"
+    },
+    "city": "Ville",
+
+    "basicInfo": "Informations générales",
+    "title": "Titre du logement",
+    "location": "Emplacement",
+    "whatsapp": "Numéro WhatsApp",
+
+    "description": {
+  "label": "Description",
+  "placeholder": "Décrivez votre logement (emplacement, équipements, prix, etc...)"
+},
+    "photos": {
+    "title": "Ajoutez des photos de votre logement",
+    "subTitle": "De bonnes photos permettent de louer plus rapidement",
+    "add": "Ajouter des photos"
+  },
+    "photosHint": "De bonnes photos augmentent vos chances de réservation",
+
+  "pricing": {
+  "title": "Fixer le loyer mensuel",
+  "subTitle": "Vous pouvez modifier le prix à tout moment",
+  "priceLabel": "Loyer mensuel",
+  "summaryTitle": "Prix du loyer",
+  "perMonth": "par mois"
+},
+    "priceHint": "Vous pouvez le modifier à tout moment",
+
+    "review": "Vérifier votre annonce",
+
+    "next": "Suivant",
+    "back": "Retour",
+    "publish": "Publier"
+  },
+
+  
+    "gallery": {
+      "setAsCover": "Couverture",
+      "delete": "Supprimer"
+    }
+  
+}
