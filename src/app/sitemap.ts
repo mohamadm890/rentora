@@ -37,20 +37,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   });
 
   /* ---------------- CITY PAGES ---------------- */
-  const cityUrls = Array.from(uniqueCities).map((city) => ({
-    url: `${baseUrl}/${city}`,
-    lastModified: new Date(),
-    changeFrequency: "daily" as const,
-    priority: 0.9,
-  }));
+const cityUrls = Array.from(uniqueCities).map((city) => ({
+  url: `${baseUrl}/louer/${city}`,
+  lastModified: new Date(),
+  changeFrequency: "daily" as const,
+  priority: 0.9,
+}));
 
-  /* ---------------- CITY + TYPE PAGES ---------------- */
-  const cityTypeUrls = Array.from(cityTypePairs).map((pair) => ({
-    url: `${baseUrl}/${pair}`,
-    lastModified: new Date(),
-    changeFrequency: "daily" as const,
-    priority: 0.85,
-  }));
+/* ---------------- CITY + TYPE PAGES ---------------- */
+const cityTypeUrls = Array.from(cityTypePairs).map((pair) => ({
+  url: `${baseUrl}/louer/${pair}`,
+  lastModified: new Date(),
+  changeFrequency: "daily" as const,
+  priority: 0.85,
+}));
 
   return [
     {
