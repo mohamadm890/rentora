@@ -6,7 +6,6 @@ import type { Metadata } from "next";
 import { buildSEO } from "@/app/lib/seo/seo";
 import { buildH1 } from "@/app/lib/seo/buildH1";
 import ListingDetailPage from "@/app/components/ListingDetailPage";
-/* ---------------- CONFIG ---------------- */
 
 const CITIES = ["marrakech", "agadir", "casablanca", "rabat"];
 const TYPES = ["studio", "villa", "apartment"];
