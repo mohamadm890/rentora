@@ -48,7 +48,7 @@ Est-ce qu’il est encore disponible ? Merci 😊`
 <div className="text-[16px] font-semibold text-gray-900">
   {listing.price} DH
   <span className="text-sm font-normal text-gray-500 ml-1">
-    / month
+    / Par mois
   </span>
 </div>
 
