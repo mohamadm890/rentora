@@ -36,7 +36,7 @@ export default function ListingCard({ listing }: any) {
           {/* PRICE */}
           <div className={`flex items-end gap-2 ${isRTL ? "flex-row-reverse" : ""}`}>
             <h3 className="text-[18px] font-medium">{price} DH</h3>
-            <p className="text-[#626262] text-[14px]">/ Month</p>
+            <p className="text-[#626262] text-[14px]">/ Par mois</p>
           </div>
 
           {/* LOCATION */}
