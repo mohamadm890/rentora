@@ -10,7 +10,7 @@ export async function generateMetadata({
   params: { slug: string };
 }): Promise<Metadata> {
   const baseUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || "https://rentora.ma";
+    process.env.NEXT_PUBLIC_SITE_URL;
 
   const feed = await getListings();
   const listings = feed.documents.map(normalizeListing);
