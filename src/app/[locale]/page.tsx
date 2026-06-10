@@ -8,7 +8,11 @@ import {normalizeListing} from '../lib/normalizeListing';
 
 import type { Metadata } from "next";
 
-
+export const metadata = {
+  verification: {
+    google: "fOr9peFwgeTwzGtSLbZDYQf3PAmTmyA5OkA0NIfYs2I",
+  },
+};
 
 export async function generateMetadata(): Promise<Metadata> {
   const baseUrl =
