@@ -4,19 +4,22 @@ import ListingDetailPage from "@/app/components/ListingDetailPage";
 import { normalizeListing } from "@/app/lib/normalizeListing";
 import type { Metadata } from "next";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}): Promise<Metadata> {
-  const baseUrl =
-    process.env.NEXT_PUBLIC_SITE_URL;
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://rentora.ma";
+
+  // 2. Await the params before using them
+  const { slug } = await params;
 
   const feed = await getListings();
   const listings = feed.documents.map(normalizeListing);
 
+  // 3. Match against the awaited slug
   const listing = listings.find(
-    (item: { slug: string }) => item.slug === params.slug
+    (item: { slug: string }) => item.slug === slug
   );
 
   if (!listing) {
