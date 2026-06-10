@@ -41,6 +41,13 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} dir={isRTL ? "rtl" : "ltr"} className={`${inter.variable} ${poppins.variable}`}>
+
+      <head>
+  <meta
+    name="google-site-verification"
+    content="fOr9peFwgeTwzGtSLbZDYQf3PAmTmyA5OkA0NIfYs2I"
+  />
+</head>
       <body>
         <NextIntlClientProvider>
 
