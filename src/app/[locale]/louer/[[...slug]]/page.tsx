@@ -15,41 +15,52 @@ const TYPES = ["studio", "villa", "apartment"];
 
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
-    const slug = params.slug || [];
-  
-    const ALLOWED_CITIES = ["agadir", "marrakech"];
-    const ALLOWED_TYPES = ["apartment", "studio", "house", "room", "villa"];
-  
-    let city = "";
-    let type = "";
-  
-    for (const s of slug) {
-      if (ALLOWED_CITIES.includes(s)) city = s;
-      else if (ALLOWED_TYPES.includes(s)) type = s;
-    }
-  
-    const seo = buildSEO(city, type);
-  
-    return {
-      title: seo.title,
-      description: seo.description,
-      alternates: {
-        canonical: seo.canonical,
-      },
-      openGraph: {
-        title: seo.title,
-        description: seo.description,
-        url: seo.canonical,
-        type: "website",
-      },
-      twitter: {
-        card: "summary_large_image",
-        title: seo.title,
-        description: seo.description,
-      },
-    };
+  const baseUrl =
+    process.env.NEXT_PUBLIC_SITE_URL || "https://rentora.ma";
+
+  const slug = params.slug || [];
+
+  const ALLOWED_CITIES = ["agadir", "marrakech"];
+  const ALLOWED_TYPES = ["apartment", "studio", "house", "room", "villa"];
+
+  let city = "";
+  let type = "";
+
+  for (const s of slug) {
+    if (ALLOWED_CITIES.includes(s)) city = s;
+    else if (ALLOWED_TYPES.includes(s)) type = s;
   }
 
+  const seo = buildSEO(city, type);
+
+  const canonicalUrl = `${baseUrl}${seo.canonical}`;
+
+  return {
+    title: seo.title,
+    description: seo.description,
+
+    alternates: {
+      canonical: canonicalUrl,
+      languages: {
+        "x-default": canonicalUrl,
+        fr: `${baseUrl}/fr${seo.canonical}`,
+      },
+    },
+
+    openGraph: {
+      title: seo.title,
+      description: seo.description,
+      url: canonicalUrl,
+      type: "website",
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title: seo.title,
+      description: seo.description,
+    },
+  };
+}
 function parseSlug(slug: string[] = []) {
   let city;
   let type;
