@@ -4,13 +4,13 @@ import ListingDetailPage from "@/app/components/ListingDetailPage";
 import { normalizeListing } from "@/app/lib/normalizeListing";
 import type { Metadata } from "next";
 
-
 export async function generateMetadata({
   params,
 }: {
   params: { slug: string };
 }): Promise<Metadata> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  const baseUrl =
+    process.env.NEXT_PUBLIC_SITE_URL || "https://rentora.ma";
 
   const feed = await getListings();
   const listings = feed.documents.map(normalizeListing);
@@ -26,20 +26,25 @@ export async function generateMetadata({
     };
   }
 
-  const url = `${baseUrl}/listing/${listing.slug}`;
+  const canonicalUrl = `${baseUrl}/listing/${listing.slug}`;
+  const frUrl = `${baseUrl}/fr/listing/${listing.slug}`;
 
   return {
     title: `${listing.title} | Rentora`,
     description: listing.description?.slice(0, 160),
 
     alternates: {
-      canonical: url,
+      canonical: canonicalUrl,
+      languages: {
+        "x-default": canonicalUrl,
+        fr: frUrl,
+      },
     },
 
     openGraph: {
       title: listing.title,
       description: listing.description,
-      url,
+      url: canonicalUrl,
       images: [
         {
           url: listing.imageIds?.[0] || "/og-default.jpg",
@@ -54,6 +59,7 @@ export async function generateMetadata({
     },
   };
 }
+
 export default async function Page({
   params,
 }: {
