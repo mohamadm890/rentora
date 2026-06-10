@@ -28,9 +28,7 @@ export default function ListingList({ listings }: any) {
   return (
 
 <div>
-    <p className="text-[#323232] text-[14px] mb-4">
-    {listings.length} rentals available.
-  </p>
+  
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {listings.map((listing: any) => (
         <ListingCard key={listing.id} listing={listing} />
