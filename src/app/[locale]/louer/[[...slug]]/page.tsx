@@ -11,12 +11,11 @@ import ListingDetailPage from "@/app/components/ListingDetailPage";
 const CITIES = ["marrakech", "agadir", "casablanca", "rabat"];
 const TYPES = ["studio", "villa", "apartment"];
 
-/* ---------------- PARSER ---------------- */
 
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
   const baseUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || "https://rentora.ma";
+    process.env.NEXT_PUBLIC_SITE_URL ;
 
   const slug = params.slug || [];
 
