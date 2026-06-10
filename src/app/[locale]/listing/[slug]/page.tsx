@@ -6,43 +6,54 @@ import type { Metadata } from "next";
 
 
 export async function generateMetadata({
-    params,
-  }: {
-    params: { slug: string };
-  }): Promise<Metadata> {
-    const feed = await getListings();
-    const listings = feed.documents.map(normalizeListing);
-  
-    const listing = listings.find((item: { slug: string; }) => item.slug === params.slug);
-  
-    if (!listing) {
-      return {
-        title: "Listing not found",
-        description: "This property does not exist.",
-      };
-    }
-  
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
+
+  const feed = await getListings();
+  const listings = feed.documents.map(normalizeListing);
+
+  const listing = listings.find(
+    (item: { slug: string }) => item.slug === params.slug
+  );
+
+  if (!listing) {
     return {
-      title: `${listing.title} | Rentora`,
-      description: listing.description?.slice(0, 160),
-      openGraph: {
-        title: listing.title,
-        description: listing.description,
-        images: [
-          {
-            url: listing.imageIds?.[0]
-              ? listing.imageIds[0]
-              : "/og-default.jpg",
-          },
-        ],
-      },
-      twitter: {
-        card: "summary_large_image",
-        title: listing.title,
-        description: listing.description,
-      },
+      title: "Listing not found",
+      description: "This property does not exist.",
     };
   }
+
+  const url = `${baseUrl}/listing/${listing.slug}`;
+
+  return {
+    title: `${listing.title} | Rentora`,
+    description: listing.description?.slice(0, 160),
+
+    alternates: {
+      canonical: url,
+    },
+
+    openGraph: {
+      title: listing.title,
+      description: listing.description,
+      url,
+      images: [
+        {
+          url: listing.imageIds?.[0] || "/og-default.jpg",
+        },
+      ],
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title: listing.title,
+      description: listing.description,
+    },
+  };
+}
 export default async function Page({
   params,
 }: {
