@@ -14,7 +14,7 @@ export async function createListing(data: Property) {
 
 
   export async function getListings() {
-    const res = await fetch("https://3000-firebase-rentora-1780334307641.cluster-fbfjltn375c6wqxlhoehbz44sk.cloudworkstations.dev/api/properties", {
+    const res = await fetch("https://rentora.ma/api/properties", {
       method: "GET"
     });
   
