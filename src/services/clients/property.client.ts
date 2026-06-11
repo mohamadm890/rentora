@@ -13,10 +13,17 @@ export async function createListing(data: Property) {
   }
 
 
-  export async function getListings() {
-    const res = await fetch("https://rentora.ma/api/properties", {
-      method: "GET"
-    });
-  
-    return res.json();
+export async function getListings() {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_SITE_URL}/api/properties`,
+    {
+      method: "GET",
+    }
+  );
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch listings");
   }
+
+  return res.json();
+}
