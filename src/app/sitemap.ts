@@ -5,7 +5,7 @@ import { normalizeListing } from "./lib/normalizeListing";
 const TYPES = ["studio", "villa", "apartment", "house", "room"];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/fr`;
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
   
   let listings: any[] = [];
 
